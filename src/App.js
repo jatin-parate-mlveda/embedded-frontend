@@ -1,7 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
+import { useAppBridge } from "@shopify/app-bridge-react";
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
+  const app = useAppBridge();
+  console.log(app);
+
   return (
     <div className="App">
       <header className="App-header">

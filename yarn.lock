@@ -1590,6 +1590,28 @@
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.1.4.tgz#0c8b74c50f29ee44f423f7416829c0bf8bb5eb27"
   integrity sha512-LwzQKA4vzIct1zNZzBmRKI9QuNpLgTQMEjsQLf3BXuGYb3QPTP4Yjf6mkdX+X1mYttZ808QpOwAzZjv28kq7DA==
 
+"@shopify/app-bridge-react@^3.2.3":
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/@shopify/app-bridge-react/-/app-bridge-react-3.2.3.tgz#a7bbdd52503f4bbebf3f1101c9e91c186fbf71ad"
+  integrity sha512-jywcH4N9WfSV8w5Lksvxy61+fnM+YphuzmPF+Z4Czti69pS9zMsafJ5STYD8iDlUd/D0TBSf0Z4yDiTYqUynYQ==
+  dependencies:
+    "@shopify/app-bridge" "^3.2.3"
+
+"@shopify/app-bridge-utils@^3.2.3":
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/@shopify/app-bridge-utils/-/app-bridge-utils-3.2.3.tgz#86ecb8993461ff00e68c40cf102a74bc6871d957"
+  integrity sha512-+HldPG+DnTb0pL7m4uE7CEc+Ez8TMT5EP7VwInbrZP79mRQfcHARMnnUhLyxXAFxNo9CBWh19/TBcNKXfYUiYQ==
+  dependencies:
+    "@shopify/app-bridge" "^3.2.3"
+
+"@shopify/app-bridge@^3.2.3":
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/@shopify/app-bridge/-/app-bridge-3.2.3.tgz#9a82895f4a2047660078df3b1421cdc6f1fdaef1"
+  integrity sha512-5EZ7u2eSpqSqgB/fJUaAI/uS0zrM7WObE+2IDxr8CuepffKRjDu7ZTJTcL/Y1OGwvlTvC7O/nme7NihVpkIwFw==
+  dependencies:
+    base64url "^3.0.1"
+    web-vitals "^2.1.4"
+
 "@sinclair/typebox@^0.24.1":
   version "0.24.28"
   resolved "https://registry.yarnpkg.com/@sinclair/typebox/-/typebox-0.24.28.tgz#15aa0b416f82c268b1573ab653e4413c965fe794"
@@ -2751,6 +2773,11 @@ balanced-match@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.2.tgz#e83e3a7e3f300b34cb9d87f615fa0cbf357690ee"
   integrity sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==
+
+base64url@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/base64url/-/base64url-3.0.1.tgz#6399d572e2bc3f90a9a8b22d5dbb0a32d33f788d"
+  integrity sha512-ir1UPr3dkwexU7FdV8qBBbNDRUhMmIekYMFZfi+C/sLNnRESKPl23nB9b2pltqfOQNnGzsDdId90AEtG5tCx4A==
 
 batch@0.6.1:
   version "0.6.1"
@@ -8515,7 +8542,7 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   dependencies:
     minimalistic-assert "^1.0.0"
 
-web-vitals@^2.1.0:
+web-vitals@^2.1.0, web-vitals@^2.1.4:
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/web-vitals/-/web-vitals-2.1.4.tgz#76563175a475a5e835264d373704f9dde718290c"
   integrity sha512-sVWcwhU5mX6crfI5Vd2dC4qchyTqxV8URinzt25XqVh+bHEPGH4C3NPrNionCP7Obx59wrYEbNlw4Z8sjALzZg==

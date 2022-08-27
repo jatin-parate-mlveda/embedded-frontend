@@ -1,13 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { Provider as AppBridgeProvider } from "@shopify/app-bridge-react";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <AppBridgeProvider
+      config={{
+        apiKey: process.env.REACT_APP_SHOPIFY_API_KEY,
+        host: new URL(window.location.href).searchParams.get("host"),
+        forceRedirect: true,
+      }}
+    >
+      <App />
+    </AppBridgeProvider>
   </React.StrictMode>
 );
 
