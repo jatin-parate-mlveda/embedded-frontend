@@ -1,29 +1,32 @@
-import { useAppBridge } from "@shopify/app-bridge-react";
-import logo from "./logo.svg";
+import { TitleBar } from "@shopify/app-bridge-react";
+import { Card, TextContainer } from "@shopify/polaris";
+import "@shopify/polaris/build/esm/styles.css";
 import "./App.css";
 
 function App() {
-  const app = useAppBridge();
-  console.log(app);
+  const primaryAction = { content: "Foo", url: "/foo" };
+  const secondaryActions = [{ content: "Bar", url: "/bar", loading: true }];
+  const actionGroups = [
+    { title: "Baz", actions: [{ content: "Baz", url: "/baz" }] },
+  ];
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+  return [
+    <TitleBar
+      key="titleBar"
+      title="Hello world!"
+      primaryAction={primaryAction}
+      secondaryActions={secondaryActions}
+      actionGroups={actionGroups}
+    />,
+    <Card key="card" title="Product Counter" sectioned>
+      <TextContainer spacing="loose">
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Sample products are created with a default title and price. You can
+          remove them at any time.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      </TextContainer>
+    </Card>,
+  ];
 }
 
 export default App;
