@@ -24,7 +24,7 @@ function App() {
         element={() =>
           (window.location.href =
             process.env.REACT_APP_API_HOST +
-            "/shopify/auth" +
+            "/shopify-auth" +
             window.location.search)
         }
       ></Route>
