@@ -1,9 +1,16 @@
 import { Card, TextContainer } from "@shopify/polaris";
 import "@shopify/polaris/build/esm/styles.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import "./App.css";
 
 function App() {
+  const location = useLocation();
+  if (location.pathname === "/auth") {
+    window.location.href =
+      process.env.REACT_APP_API_HOST + "/shopify-auth" + window.location.search;
+    return null;
+  }
+  console.log(7, location);
   console.log(7, window.location.href, window.location.search);
   const appContent = (
     <Card key="card" title="Product Counter" sectioned>
@@ -21,12 +28,13 @@ function App() {
       <Route
         path="/auth"
         exact
-        element={() =>
-          (window.location.href =
+        element={() => {
+          console.log(28, "matched");
+          return (window.location.href =
             process.env.REACT_APP_API_HOST +
             "/shopify-auth" +
-            window.location.search)
-        }
+            window.location.search);
+        }}
       ></Route>
       <Route path="*" element={appContent} />
     </Routes>
