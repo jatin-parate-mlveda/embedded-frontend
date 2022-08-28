@@ -34,6 +34,8 @@ function MyProvider({ children }) {
   return <ApolloProvider client={client}>{children}</ApolloProvider>;
 }
 
+console.log(37, window.location.href, window.location.search);
+
 root.render(
   <React.StrictMode>
     <BrowserRouter>
