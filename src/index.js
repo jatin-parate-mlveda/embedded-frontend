@@ -16,6 +16,7 @@ import reportWebVitals from "./reportWebVitals";
 import { userLoggedInFetch } from "./userLoggedInFetch";
 import translations from "@shopify/polaris/locales/en.json";
 import { AppProvider } from "@shopify/polaris";
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -35,19 +36,21 @@ function MyProvider({ children }) {
 
 root.render(
   <React.StrictMode>
-    <AppProvider i18n={translations}>
-      <AppBridgeProvider
-        config={{
-          apiKey: process.env.REACT_APP_SHOPIFY_API_KEY,
-          host: new URL(window.location.href).searchParams.get("host"),
-          forceRedirect: true,
-        }}
-      >
-        <MyProvider>
-          <App />
-        </MyProvider>
-      </AppBridgeProvider>
-    </AppProvider>
+    <BrowserRouter>
+      <AppProvider i18n={translations}>
+        <AppBridgeProvider
+          config={{
+            apiKey: process.env.REACT_APP_SHOPIFY_API_KEY,
+            host: new URL(window.location.href).searchParams.get("host"),
+            forceRedirect: true,
+          }}
+        >
+          <MyProvider>
+            <App />
+          </MyProvider>
+        </AppBridgeProvider>
+      </AppProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
