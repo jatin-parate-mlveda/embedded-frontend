@@ -38,7 +38,7 @@ function App() {
   ];
 
   return (
-    <JwtContextProvider value={jwtToken.current}>
+    <JwtContextProvider value={jwtToken}>
       <Routes>
         <Route
           path="/auth"
