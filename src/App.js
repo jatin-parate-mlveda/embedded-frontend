@@ -19,7 +19,7 @@ function App() {
 
   if (location.pathname === "/auth") {
     window.location.href =
-      process.env.REACT_APP_API_HOST + "/shopify-auth/callback" + window.location.search;
+      process.env.REACT_APP_API_HOST + "/shopify-auth" + window.location.search;
     return null;
   }
 
