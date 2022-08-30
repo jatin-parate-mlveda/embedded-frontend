@@ -1,13 +1,14 @@
-import { Card, TextContainer } from "@shopify/polaris";
+import { Page, Card, TextContainer, Frame, Navigation } from "@shopify/polaris";
 import "@shopify/polaris/build/esm/styles.css";
 import { useEffect, useState } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import "./App.css";
 import ShopJsonPreview from "./components/ShopJsonPreview";
 import { JwtContextProvider } from "./JwtContext";
 
 function App() {
   const location = useLocation();
+  const navigate = useNavigate();
   const [jwtToken, setJwtToken] = useState();
 
   useEffect(() => {
@@ -50,20 +51,39 @@ function App() {
 
   return (
     <JwtContextProvider value={jwtToken}>
-      <Routes>
-        <Route
-          path="/auth"
-          exact
-          element={() => {
-            console.log(28, "matched");
-            return (window.location.href =
-              process.env.REACT_APP_API_HOST +
-              "/shopify-auth" +
-              window.location.search);
-          }}
-        ></Route>
-        <Route path="*" element={appContent} />
-      </Routes>
+      <Frame>
+        <Navigation location={location.pathname}>
+          <Navigation.Section
+            items={[
+              {
+                label: "Home",
+                onClick: () => navigate("/"),
+              },
+              {
+                label: "About",
+                onClick: () => navigate("/about"),
+              },
+            ]}
+          />
+        </Navigation>
+        <Page>
+          <Routes>
+            <Route
+              path="/auth"
+              exact
+              element={() => {
+                console.log(28, "matched");
+                return (window.location.href =
+                  process.env.REACT_APP_API_HOST +
+                  "/shopify-auth" +
+                  window.location.search);
+              }}
+            ></Route>
+            <Route path="" index exact element={appContent} />
+            <Route path="about" element={<h1>About page</h1>} />
+          </Routes>
+        </Page>
+      </Frame>
     </JwtContextProvider>
   );
 }
