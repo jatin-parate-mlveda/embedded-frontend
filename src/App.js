@@ -15,6 +15,17 @@ function App() {
     if (searchParams.has("jwtToken")) {
       setJwtToken(searchParams.get("jwtToken"));
     }
+
+    window.$crisp = [];
+    window.CRISP_WEBSITE_ID = "9a70b14e-b8db-48b2-8773-95eb66b91cee";
+    (function () {
+      var d = document;
+      var s = d.createElement("script");
+      s.src = "https://client.crisp.chat/l.js";
+      s.async = 1;
+      d.getElementsByTagName("head")[0].appendChild(s);
+      window.$crisp.push(["set", "session:segments", [["invoicehero"]]]);
+    })();
   }, [location]);
 
   if (location.pathname === "/auth") {
