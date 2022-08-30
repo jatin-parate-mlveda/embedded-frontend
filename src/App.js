@@ -51,21 +51,24 @@ function App() {
 
   return (
     <JwtContextProvider value={jwtToken}>
-      <Frame>
-        <Navigation location={location.pathname}>
-          <Navigation.Section
-            items={[
-              {
-                label: "Home",
-                onClick: () => navigate("/"),
-              },
-              {
-                label: "About",
-                onClick: () => navigate("/about"),
-              },
-            ]}
-          />
-        </Navigation>
+      <Frame
+        navigation={
+          <Navigation location={location.pathname}>
+            <Navigation.Section
+              items={[
+                {
+                  label: "Home",
+                  onClick: () => navigate("/"),
+                },
+                {
+                  label: "About",
+                  onClick: () => navigate("/about"),
+                },
+              ]}
+            />
+          </Navigation>
+        }
+      >
         <Page>
           <Routes>
             <Route
